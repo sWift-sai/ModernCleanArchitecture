@@ -5,7 +5,7 @@ import android.content.Context;
 
 import ru.swift.moderncleanarchitecture.data.DataModule;
 import ru.swift.moderncleanarchitecture.domain.DomainModule;
-import ru.swift.moderncleanarchitecture.presentation.NavigationModule;
+import ru.swift.moderncleanarchitecture.presentation.navigation.NavigationModule;
 import ru.swift.moderncleanarchitecture.presentation.PresentationModule;
 
 public class ModernApplication extends Application {

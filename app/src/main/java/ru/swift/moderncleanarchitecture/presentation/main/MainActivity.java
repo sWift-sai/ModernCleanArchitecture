@@ -1,4 +1,4 @@
-package ru.swift.moderncleanarchitecture.presentation;
+package ru.swift.moderncleanarchitecture.presentation.main;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,6 +9,8 @@ import javax.inject.Inject;
 
 import ru.swift.moderncleanarchitecture.ModernApplication;
 import ru.swift.moderncleanarchitecture.R;
+import ru.swift.moderncleanarchitecture.presentation.navigation.BaseNavigator;
+import ru.swift.moderncleanarchitecture.presentation.navigation.Screens;
 import ru.swift.moderncleanarchitecture.presentation.detail.DetailFragment;
 import ru.swift.moderncleanarchitecture.presentation.master.MasterFragment;
 import ru.terrakok.cicerone.Navigator;

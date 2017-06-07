@@ -1,12 +1,12 @@
-package ru.swift.moderncleanarchitecture.presentation;
+package ru.swift.moderncleanarchitecture.presentation.navigation;
 
 import android.support.v4.app.FragmentManager;
 
 import ru.terrakok.cicerone.android.SupportFragmentNavigator;
 
-abstract class BaseNavigator extends SupportFragmentNavigator {
+public abstract class BaseNavigator extends SupportFragmentNavigator {
 
-    BaseNavigator(FragmentManager fragmentManager, int containerId) {
+    public BaseNavigator(FragmentManager fragmentManager, int containerId) {
         super(fragmentManager, containerId);
     }
 

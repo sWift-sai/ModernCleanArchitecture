@@ -3,7 +3,7 @@ package ru.swift.moderncleanarchitecture.presentation.master;
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 
-import ru.swift.moderncleanarchitecture.presentation.Screens;
+import ru.swift.moderncleanarchitecture.presentation.navigation.Screens;
 import ru.terrakok.cicerone.Router;
 
 @InjectViewState

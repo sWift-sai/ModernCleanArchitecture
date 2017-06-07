@@ -1,4 +1,4 @@
-package ru.swift.moderncleanarchitecture.presentation;
+package ru.swift.moderncleanarchitecture.presentation.navigation;
 
 import javax.inject.Singleton;
 

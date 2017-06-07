@@ -1,6 +1,6 @@
-package ru.swift.moderncleanarchitecture.presentation;
+package ru.swift.moderncleanarchitecture.presentation.navigation;
 
-public class Screens {
+public final class Screens {
     public static final String MAIN_ACTIVITY_SCREEN = "main activity screen";
 
     public static final String MASTER_SCREEN = "master screen";
