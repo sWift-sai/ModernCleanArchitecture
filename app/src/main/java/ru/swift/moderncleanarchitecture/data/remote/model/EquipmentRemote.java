@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
 @Data
-public class ExerciseCategory {
+public class EquipmentRemote {
 
     @SerializedName("id")
     private int id;

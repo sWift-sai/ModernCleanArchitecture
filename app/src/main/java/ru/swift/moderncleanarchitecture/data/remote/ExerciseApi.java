@@ -1,24 +1,24 @@
 package ru.swift.moderncleanarchitecture.data.remote;
 
-import java.util.List;
-
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
-import ru.swift.moderncleanarchitecture.data.remote.model.Exercise;
-import ru.swift.moderncleanarchitecture.data.remote.model.ExerciseCategory;
-import ru.swift.moderncleanarchitecture.data.remote.model.ExerciseInfo;
+import ru.swift.moderncleanarchitecture.data.remote.model.ExerciseCategoryRemote;
+import ru.swift.moderncleanarchitecture.data.remote.model.ExerciseInfoRemote;
+import ru.swift.moderncleanarchitecture.data.remote.model.ExerciseRemote;
+import ru.swift.moderncleanarchitecture.data.remote.model.PaginatedListResponse;
 import rx.Observable;
 
 public interface ExerciseApi {
 
     @GET("exercisecategory")
-    Observable<List<ExerciseCategory>> getExerciseCategories();
+    Observable<PaginatedListResponse<ExerciseCategoryRemote>> getExerciseCategories(@Query("page") int page);
 
     @GET("exercise")
-    Observable<List<Exercise>> getExercisesForCategory(@Query("category") int categoryId);
+    Observable<PaginatedListResponse<ExerciseRemote>> getExercisesByCategory(@Query("category") int categoryId,
+                                                                             @Query("page") int page);
 
     @GET("exerciseinfo/{id}")
-    Observable<ExerciseInfo> getExerciseInfo(@Path("id") int exerciseId);
+    Observable<ExerciseInfoRemote> getExerciseInfo(@Path("id") int exerciseId);
 
 }

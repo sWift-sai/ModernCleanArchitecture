@@ -15,11 +15,11 @@ public class Exercise {
     private String nameOriginal;
     private String creationDate;
     private String uuid;
-    private int license;
-    private int category;
-    private int language;
-    private List<Integer> muscles = null;
-    private List<Integer> musclesSecondary = null;
-    private List<Integer> equipment = null;
+    private int licenseId;
+    private int categoryId;
+    private int languageId;
+    private List<Integer> musclesIds;
+    private List<Integer> musclesSecondaryIds;
+    private List<Integer> equipmentIds;
 
 }

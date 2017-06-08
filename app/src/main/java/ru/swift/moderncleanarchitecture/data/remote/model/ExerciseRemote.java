@@ -7,7 +7,7 @@ import java.util.List;
 import lombok.Data;
 
 @Data
-public class Exercise {
+public class ExerciseRemote {
 
     @SerializedName("id")
     private int id;
@@ -34,21 +34,21 @@ public class Exercise {
     private String uuid;
 
     @SerializedName("license")
-    private int license;
+    private int licenseId;
 
     @SerializedName("category")
-    private int category;
+    private int categoryId;
 
     @SerializedName("language")
-    private int language;
+    private int languageId;
 
     @SerializedName("muscles")
-    private List<Integer> muscles = null;
+    private List<Integer> musclesIds;
 
     @SerializedName("muscles_secondary")
-    private List<Integer> musclesSecondary = null;
+    private List<Integer> musclesSecondaryIds;
 
     @SerializedName("equipment")
-    private List<Integer> equipment = null;
+    private List<Integer> equipmentIds;
 
 }

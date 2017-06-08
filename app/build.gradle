@@ -35,6 +35,7 @@ def moxy = "1.5.3"
 def cicerone = "1.2.1"
 def retrofit = "2.3.0"
 def okhttp = "3.8.0"
+def mapstruct = "1.1.0.Final"
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -68,8 +69,11 @@ dependencies {
     annotationProcessor "com.jakewharton:butterknife-compiler:$butterKnife"
     provided "org.projectlombok:lombok:$lombok"
     annotationProcessor "org.projectlombok:lombok:$lombok"
+    compile "org.mapstruct:mapstruct-jdk8:$mapstruct"
+    annotationProcessor "org.mapstruct:mapstruct-processor:$mapstruct"
 
 
+    // -------Testing--------
     // Instrumentation testing
     androidTestCompile("com.android.support.test.espresso:espresso-core:2.2.2", {
         exclude group: "com.android.support", module: "support-annotations"
@@ -77,4 +81,5 @@ dependencies {
 
     // Unit testing
     testCompile 'junit:junit:4.12'
+    testCompile 'org.assertj:assertj-core:3.8.0'
 }
