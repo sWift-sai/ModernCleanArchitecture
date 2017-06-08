@@ -4,5 +4,5 @@ import dagger.Module;
 
 @Module
 public class DomainModule {
-    //TODO
+    // TODO
 }

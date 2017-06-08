@@ -3,7 +3,7 @@ package ru.swift.moderncleanarchitecture;
 import android.app.Application;
 import android.content.Context;
 
-import ru.swift.moderncleanarchitecture.data.DataModule;
+import ru.swift.moderncleanarchitecture.data.RemoteModule;
 import ru.swift.moderncleanarchitecture.domain.DomainModule;
 import ru.swift.moderncleanarchitecture.presentation.navigation.NavigationModule;
 import ru.swift.moderncleanarchitecture.presentation.PresentationModule;
@@ -24,7 +24,7 @@ public class ModernApplication extends Application {
 
     private void createComponentAndInject() {
         component = DaggerApplicationComponent.builder()
-                .dataModule(new DataModule())
+                .remoteModule(new RemoteModule())
                 .domainModule(new DomainModule())
                 .presentationModule(new PresentationModule())
                 .navigationModule(new NavigationModule())
