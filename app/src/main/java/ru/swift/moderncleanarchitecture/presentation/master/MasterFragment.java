@@ -11,36 +11,29 @@ import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
 
-import javax.inject.Inject;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import ru.swift.moderncleanarchitecture.ApplicationComponent;
 import ru.swift.moderncleanarchitecture.ModernApplication;
 import ru.swift.moderncleanarchitecture.R;
-import ru.swift.moderncleanarchitecture.domain.interactor.GetExerciseCategories;
-import ru.terrakok.cicerone.Router;
 
 
 public class MasterFragment extends MvpAppCompatFragment implements MasterContract.View {
 
-    public static final String TAG = MasterFragment.class.getSimpleName();
-
-    @BindView(R.id.messageTextView)
-    TextView messageTextView;
-
-    @Inject
-    Router router;
-    @Inject
-    GetExerciseCategories getExerciseCategories;
-    @InjectPresenter
-    MasterPresenter presenter;
-
     @ProvidePresenter
     public MasterPresenter provideMasterPresenter() {
-        return new MasterPresenter(router, getExerciseCategories);
+        ApplicationComponent appComponent = ModernApplication.getComponent(getActivity());
+        return new MasterPresenter(
+                appComponent.provideRouter(),
+                appComponent.provideGetExerciseCategories()
+        );
     }
+
+    @InjectPresenter MasterPresenter presenter;
+
+    @BindView(R.id.messageTextView) TextView messageTextView;
 
     private Unbinder unbinder;
 
@@ -48,9 +41,10 @@ public class MasterFragment extends MvpAppCompatFragment implements MasterContra
         return new MasterFragment();
     }
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        ModernApplication.get(getContext()).getApplicationComponent().inject(this);
+        ModernApplication.getComponent(getActivity()).inject(this);
         super.onCreate(savedInstanceState);
     }
 

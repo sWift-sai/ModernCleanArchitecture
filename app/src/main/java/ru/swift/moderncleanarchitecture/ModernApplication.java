@@ -7,6 +7,7 @@ import ru.swift.moderncleanarchitecture.data.RemoteModule;
 import ru.swift.moderncleanarchitecture.domain.DomainModule;
 import ru.swift.moderncleanarchitecture.presentation.PresentationModule;
 import ru.swift.moderncleanarchitecture.presentation.navigation.NavigationModule;
+import timber.log.Timber;
 
 public class ModernApplication extends Application {
 
@@ -16,10 +17,17 @@ public class ModernApplication extends Application {
         return (ModernApplication) context.getApplicationContext();
     }
 
+    public static ApplicationComponent getComponent(Context context) {
+        return get(context).component;
+    }
+
+
     @Override
     public void onCreate() {
         super.onCreate();
         createComponentAndInject();
+
+        initializeLogger();
     }
 
     private void createComponentAndInject() {
@@ -32,7 +40,9 @@ public class ModernApplication extends Application {
         component.inject(this);
     }
 
-    public ApplicationComponent getApplicationComponent(){
-        return component;
+    private void initializeLogger() {
+        if (BuildConfig.DEBUG) {
+            Timber.plant(new Timber.DebugTree());
+        }
     }
 }

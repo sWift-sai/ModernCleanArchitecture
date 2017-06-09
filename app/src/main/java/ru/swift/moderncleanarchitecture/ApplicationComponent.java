@@ -5,11 +5,13 @@ import javax.inject.Singleton;
 import dagger.Component;
 import ru.swift.moderncleanarchitecture.data.RemoteModule;
 import ru.swift.moderncleanarchitecture.domain.DomainModule;
+import ru.swift.moderncleanarchitecture.domain.interactor.GetExerciseCategories;
 import ru.swift.moderncleanarchitecture.presentation.PresentationModule;
 import ru.swift.moderncleanarchitecture.presentation.detail.DetailFragment;
 import ru.swift.moderncleanarchitecture.presentation.main.MainActivity;
 import ru.swift.moderncleanarchitecture.presentation.master.MasterFragment;
 import ru.swift.moderncleanarchitecture.presentation.navigation.NavigationModule;
+import ru.terrakok.cicerone.Router;
 
 @Singleton
 @Component(modules = {
@@ -21,10 +23,13 @@ import ru.swift.moderncleanarchitecture.presentation.navigation.NavigationModule
 public interface ApplicationComponent {
 
     void inject(ModernApplication application);
-
     void inject(MainActivity activity);
-
     void inject(MasterFragment masterFragment);
-
     void inject(DetailFragment detailFragment);
+
+    // Navigation
+    Router provideRouter();
+
+    // Domain
+    GetExerciseCategories provideGetExerciseCategories();
 }

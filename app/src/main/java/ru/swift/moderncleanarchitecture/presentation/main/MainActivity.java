@@ -27,7 +27,7 @@ public class MainActivity extends MvpAppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        ModernApplication.get(this).getApplicationComponent().inject(this);
+        ModernApplication.getComponent(this).inject(this);
         super.onCreate(savedInstanceState);
         prepareNavigator();
 

@@ -36,7 +36,7 @@ public class DetailFragment extends MvpAppCompatFragment implements DetailContra
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        ModernApplication.get(getContext()).getApplicationComponent().inject(this);
+        ModernApplication.getComponent(getContext()).inject(this);
         super.onCreate(savedInstanceState);
     }
 
