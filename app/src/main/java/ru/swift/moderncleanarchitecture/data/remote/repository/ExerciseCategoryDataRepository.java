@@ -2,6 +2,7 @@ package ru.swift.moderncleanarchitecture.data.remote.repository;
 
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import ru.swift.moderncleanarchitecture.data.remote.mapper.ExerciseCategoryRemoteDataMapper;
@@ -18,6 +19,7 @@ public class ExerciseCategoryDataRepository implements ExerciseCategoryRepositor
     private final ExerciseCategoryDataStoreFactory exerciseCategoryDataStoreFactory;
     private ExerciseCategoryRemoteDataStore exerciseCategoryRemoteDataStore;
 
+    @Inject
     public ExerciseCategoryDataRepository(ExerciseCategoryRemoteDataMapper exerciseCategoryRemoteDataMapper,
                                           ExerciseCategoryDataStoreFactory exerciseCategoryDataStoreFactory) {
         this.exerciseCategoryRemoteDataMapper = exerciseCategoryRemoteDataMapper;

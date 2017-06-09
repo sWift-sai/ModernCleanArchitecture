@@ -23,7 +23,7 @@ import static okhttp3.logging.HttpLoggingInterceptor.Level;
 @Module
 public class RemoteModule {
 
-    private final String BASE_URL = "https://wger.de/api/v2";
+    private final String BASE_URL = "https://wger.de/api/v2/";
 
     @Provides @Singleton
     Gson provideGson() {
@@ -57,6 +57,7 @@ public class RemoteModule {
 
 
 
+    // --- Mappers ---
     @Provides
     ExerciseCategoryRemoteDataMapper provideExerciseCategoryRemoteDataMapper() {
         return ExerciseCategoryRemoteDataMapper.INSTANCE;

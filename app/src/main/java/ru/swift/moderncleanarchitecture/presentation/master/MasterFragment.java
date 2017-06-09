@@ -19,6 +19,7 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 import ru.swift.moderncleanarchitecture.ModernApplication;
 import ru.swift.moderncleanarchitecture.R;
+import ru.swift.moderncleanarchitecture.domain.interactor.GetExerciseCategories;
 import ru.terrakok.cicerone.Router;
 
 
@@ -31,12 +32,14 @@ public class MasterFragment extends MvpAppCompatFragment implements MasterContra
 
     @Inject
     Router router;
+    @Inject
+    GetExerciseCategories getExerciseCategories;
     @InjectPresenter
     MasterPresenter presenter;
 
     @ProvidePresenter
     public MasterPresenter provideMasterPresenter() {
-        return new MasterPresenter(router);
+        return new MasterPresenter(router, getExerciseCategories);
     }
 
     private Unbinder unbinder;
