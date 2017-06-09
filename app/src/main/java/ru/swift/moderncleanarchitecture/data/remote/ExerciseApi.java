@@ -12,7 +12,7 @@ import rx.Observable;
 public interface ExerciseApi {
 
     @GET("exercisecategory")
-    Observable<PaginatedListResponse<ExerciseCategoryRemote>> getExerciseCategories(@Query("page") int page);
+    Observable<PaginatedListResponse<ExerciseCategoryRemote>> getExerciseCategories();
 
     @GET("exercise")
     Observable<PaginatedListResponse<ExerciseRemote>> getExercisesByCategory(@Query("category") int categoryId,

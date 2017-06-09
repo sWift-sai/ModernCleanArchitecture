@@ -14,6 +14,9 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import ru.swift.moderncleanarchitecture.BuildConfig;
 import ru.swift.moderncleanarchitecture.data.remote.ExerciseApi;
+import ru.swift.moderncleanarchitecture.data.remote.mapper.ExerciseCategoryRemoteDataMapper;
+import ru.swift.moderncleanarchitecture.data.remote.mapper.ExerciseInfoRemoteDataMapper;
+import ru.swift.moderncleanarchitecture.data.remote.mapper.ExerciseRemoteDataMapper;
 
 import static okhttp3.logging.HttpLoggingInterceptor.Level;
 
@@ -50,5 +53,22 @@ public class RemoteModule {
     @Provides @Singleton
     ExerciseApi provideExerciseApi(Retrofit retrofit) {
         return retrofit.create(ExerciseApi.class);
+    }
+
+
+
+    @Provides
+    ExerciseCategoryRemoteDataMapper provideExerciseCategoryRemoteDataMapper() {
+        return ExerciseCategoryRemoteDataMapper.INSTANCE;
+    }
+
+    @Provides
+    ExerciseRemoteDataMapper provideExerciseRemoteDataMapper() {
+        return ExerciseRemoteDataMapper.INSTANCE;
+    }
+
+    @Provides
+    ExerciseInfoRemoteDataMapper provideExerciseInfoRemoteDataMapper() {
+        return ExerciseInfoRemoteDataMapper.INSTANCE;
     }
 }

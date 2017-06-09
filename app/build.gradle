@@ -69,7 +69,7 @@ dependencies {
     annotationProcessor "com.jakewharton:butterknife-compiler:$butterKnife"
     provided "org.projectlombok:lombok:$lombok"
     annotationProcessor "org.projectlombok:lombok:$lombok"
-    compile "org.mapstruct:mapstruct-jdk8:$mapstruct"
+    compile "org.mapstruct:mapstruct:$mapstruct"
     annotationProcessor "org.mapstruct:mapstruct-processor:$mapstruct"
 
 
