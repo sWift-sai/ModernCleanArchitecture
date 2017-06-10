@@ -35,6 +35,11 @@ public abstract class BaseInteractor<P extends BaseInteractor.RequestParams> {
                 .subscribe(interactorSubscriber);
     }
 
+    @SuppressWarnings("unchecked")
+    public void execute(Subscriber interactorSubscriber) {
+        execute(null, interactorSubscriber);
+    }
+
     public void unsubscribe() {
         if (!subscription.isUnsubscribed()) {
             subscription.unsubscribe();

@@ -1,4 +1,4 @@
-package ru.swift.moderncleanarchitecture.presentation.detail;
+package ru.swift.moderncleanarchitecture.presentation.screen.detail;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

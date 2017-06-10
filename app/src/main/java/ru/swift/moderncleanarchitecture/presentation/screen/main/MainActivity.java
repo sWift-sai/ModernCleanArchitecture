@@ -1,4 +1,4 @@
-package ru.swift.moderncleanarchitecture.presentation.main;
+package ru.swift.moderncleanarchitecture.presentation.screen.main;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,8 +11,8 @@ import ru.swift.moderncleanarchitecture.ModernApplication;
 import ru.swift.moderncleanarchitecture.R;
 import ru.swift.moderncleanarchitecture.presentation.navigation.BaseNavigator;
 import ru.swift.moderncleanarchitecture.presentation.navigation.Screens;
-import ru.swift.moderncleanarchitecture.presentation.detail.DetailFragment;
-import ru.swift.moderncleanarchitecture.presentation.master.MasterFragment;
+import ru.swift.moderncleanarchitecture.presentation.screen.detail.DetailFragment;
+import ru.swift.moderncleanarchitecture.presentation.screen.master.ExerciseCategoriesFragment;
 import ru.terrakok.cicerone.Navigator;
 import ru.terrakok.cicerone.NavigatorHolder;
 import ru.terrakok.cicerone.commands.Replace;
@@ -34,7 +34,7 @@ public class MainActivity extends MvpAppCompatActivity {
         setContentView(R.layout.activity_main);
 
         if (savedInstanceState == null) {
-            navigator.applyCommand(new Replace(Screens.MASTER_SCREEN, null));
+            navigator.applyCommand(new Replace(Screens.EXERCISE_CATEGORIES_SCREEN, null));
         }
     }
 
@@ -55,12 +55,12 @@ public class MainActivity extends MvpAppCompatActivity {
             @Override
             protected Fragment createFragment(String screenKey, Object data) {
                 switch (screenKey) {
-                    case Screens.DETAIL_SCREEN:
+                    case Screens.EXERCISES_SCREEN:
                         return DetailFragment.newInstance();
 
-                    case Screens.MASTER_SCREEN:
+                    case Screens.EXERCISE_CATEGORIES_SCREEN:
                     default:
-                        return MasterFragment.newInstance();
+                        return ExerciseCategoriesFragment.newInstance();
                 }
             }
 
