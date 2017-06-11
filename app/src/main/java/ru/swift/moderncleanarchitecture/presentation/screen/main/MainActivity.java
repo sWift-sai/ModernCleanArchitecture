@@ -12,7 +12,7 @@ import ru.swift.moderncleanarchitecture.R;
 import ru.swift.moderncleanarchitecture.presentation.navigation.BaseNavigator;
 import ru.swift.moderncleanarchitecture.presentation.navigation.Screens;
 import ru.swift.moderncleanarchitecture.presentation.screen.detail.DetailFragment;
-import ru.swift.moderncleanarchitecture.presentation.screen.master.ExerciseCategoriesFragment;
+import ru.swift.moderncleanarchitecture.presentation.screen.categories.ExerciseCategoriesFragment;
 import ru.terrakok.cicerone.Navigator;
 import ru.terrakok.cicerone.NavigatorHolder;
 import ru.terrakok.cicerone.commands.Replace;

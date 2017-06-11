@@ -1,4 +1,4 @@
-package ru.swift.moderncleanarchitecture.presentation.screen.master;
+package ru.swift.moderncleanarchitecture.presentation.screen.categories;
 
 import com.arellomobile.mvp.InjectViewState;
 
@@ -20,9 +20,9 @@ public class ExerciseCategoriesPresenter extends BasePresenter<ExerciseCategorie
     private final GetExerciseCategories getExerciseCategories;
     private final ExerciseCategoryModelDataMapper exerciseCategoryModelMapper;
 
-    public ExerciseCategoriesPresenter(Router router,
-                                       GetExerciseCategories getExerciseCategories,
-                                       ExerciseCategoryModelDataMapper exerciseCategoryModelDataMapper) {
+    ExerciseCategoriesPresenter(Router router,
+                                GetExerciseCategories getExerciseCategories,
+                                ExerciseCategoryModelDataMapper exerciseCategoryModelDataMapper) {
         this.router = router;
         this.getExerciseCategories = getExerciseCategories;
         this.exerciseCategoryModelMapper = exerciseCategoryModelDataMapper;
@@ -31,17 +31,17 @@ public class ExerciseCategoriesPresenter extends BasePresenter<ExerciseCategorie
     @Override
     protected void onFirstViewAttach() {
         super.onFirstViewAttach();
-        initialize();
+        loadExerciseCategories();
     }
 
-    private void initialize() {
+    private void loadExerciseCategories() {
         getViewState().showLoading();
         getExerciseCategories.execute(new ExerciseCategoriesSubscriber());
     }
 
     @Override
     public void onExerciseCategoryClick(int exerciseCategoryId) {
-        router.navigateTo(Screens.EXERCISES_SCREEN);
+        router.navigateTo(Screens.EXERCISES_SCREEN, exerciseCategoryId);
     }
 
     @Override

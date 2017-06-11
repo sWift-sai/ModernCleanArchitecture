@@ -13,7 +13,7 @@ import ru.swift.moderncleanarchitecture.presentation.mapper.ExerciseModelDataMap
 import ru.swift.moderncleanarchitecture.presentation.navigation.NavigationModule;
 import ru.swift.moderncleanarchitecture.presentation.screen.detail.DetailFragment;
 import ru.swift.moderncleanarchitecture.presentation.screen.main.MainActivity;
-import ru.swift.moderncleanarchitecture.presentation.screen.master.ExerciseCategoriesFragment;
+import ru.swift.moderncleanarchitecture.presentation.screen.categories.ExerciseCategoriesFragment;
 import ru.terrakok.cicerone.Router;
 
 @Singleton

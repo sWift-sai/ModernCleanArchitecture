@@ -1,4 +1,4 @@
-package ru.swift.moderncleanarchitecture.presentation.screen.master;
+package ru.swift.moderncleanarchitecture.presentation.screen.categories;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
