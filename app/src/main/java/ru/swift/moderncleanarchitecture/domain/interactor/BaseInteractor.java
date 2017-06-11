@@ -11,7 +11,7 @@ import rx.subscriptions.Subscriptions;
 
 import static dagger.internal.Preconditions.checkNotNull;
 
-public abstract class BaseInteractor<P extends BaseInteractor.RequestParams> {
+public abstract class BaseInteractor<P extends BaseInteractor.Params> {
 
     private final ExecutionThread executionThread;
     private final PostExecutionThread postExecutionThread;
@@ -25,10 +25,11 @@ public abstract class BaseInteractor<P extends BaseInteractor.RequestParams> {
     }
 
 
-    protected abstract Observable buildInteractorObservable(P params);
+    abstract Observable buildInteractorObservable(P params);
 
     @SuppressWarnings("unchecked")
     public void execute(P params, Subscriber interactorSubscriber) {
+        checkNotNull(interactorSubscriber);
         subscription = buildInteractorObservable(params)
                 .subscribeOn(executionThread.getScheduler())
                 .observeOn(postExecutionThread.getScheduler())
@@ -46,5 +47,5 @@ public abstract class BaseInteractor<P extends BaseInteractor.RequestParams> {
         }
     }
 
-    public interface RequestParams {}
+    public interface Params {}
 }

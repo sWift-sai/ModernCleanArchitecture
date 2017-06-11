@@ -5,7 +5,7 @@ import ru.swift.moderncleanarchitecture.domain.scheduler.PostExecutionThread;
 import ru.swift.moderncleanarchitecture.domain.repository.ExerciseCategoryRepository;
 import rx.Observable;
 
-public class GetExerciseCategories extends BaseInteractor<BaseInteractor.RequestParams> {
+public class GetExerciseCategories extends BaseInteractor<BaseInteractor.Params> {
 
     private final ExerciseCategoryRepository exerciseCategoryRepository;
 
@@ -17,7 +17,7 @@ public class GetExerciseCategories extends BaseInteractor<BaseInteractor.Request
     }
 
     @Override
-    protected Observable buildInteractorObservable(RequestParams params) {
+    protected Observable buildInteractorObservable(Params params) {
         return exerciseCategoryRepository.getAll();
     }
 }
