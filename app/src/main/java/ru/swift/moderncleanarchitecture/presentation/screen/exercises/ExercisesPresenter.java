@@ -7,7 +7,6 @@ import java.util.List;
 import ru.swift.moderncleanarchitecture.domain.interactor.GetExercises;
 import ru.swift.moderncleanarchitecture.domain.model.Exercise;
 import ru.swift.moderncleanarchitecture.presentation.mapper.ExerciseModelDataMapper;
-import ru.swift.moderncleanarchitecture.presentation.navigation.Screens;
 import ru.swift.moderncleanarchitecture.presentation.screen.BasePresenter;
 import ru.swift.moderncleanarchitecture.presentation.screen.DefaultSubscriber;
 import ru.terrakok.cicerone.Router;
@@ -44,7 +43,8 @@ public class ExercisesPresenter extends BasePresenter<ExercisesContract.View>
 
     @Override
     public void onExerciseClick(int exerciseId) {
-        router.navigateTo(Screens.EXERCISE_INFO_SCREEN, exerciseId);
+        // FIXME uncomment when Exercise info screen will be implemented
+        //router.navigateTo(Screens.EXERCISE_INFO_SCREEN, exerciseId);
     }
 
     @Override
