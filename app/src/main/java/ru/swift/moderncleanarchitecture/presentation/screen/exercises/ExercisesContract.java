@@ -15,7 +15,7 @@ interface ExercisesContract {
 
         void onBackPressed();
 
-        interface OnExerciseClickListener {
+        interface ExerciseClickListener {
             void onExerciseClick(int exerciseId);
         }
     }

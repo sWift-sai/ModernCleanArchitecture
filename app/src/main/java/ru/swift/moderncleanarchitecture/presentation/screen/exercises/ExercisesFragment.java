@@ -2,6 +2,7 @@ package ru.swift.moderncleanarchitecture.presentation.screen.exercises;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -21,10 +22,12 @@ import ru.swift.moderncleanarchitecture.ApplicationComponent;
 import ru.swift.moderncleanarchitecture.ModernApplication;
 import ru.swift.moderncleanarchitecture.R;
 import ru.swift.moderncleanarchitecture.presentation.model.ExerciseModel;
+import ru.swift.moderncleanarchitecture.presentation.screen.BackButtonListener;
 import ru.swift.moderncleanarchitecture.presentation.screen.BaseFragment;
 
 
-public class ExercisesFragment extends BaseFragment implements ExercisesContract.View {
+public class ExercisesFragment extends BaseFragment implements ExercisesContract.View,
+        BackButtonListener {
 
     public static final String KEY_EXERCISE_CATEGORY_ID = "exercise category id";
 
@@ -81,8 +84,15 @@ public class ExercisesFragment extends BaseFragment implements ExercisesContract
 
     private void initToolbar() {
         getAppCompatActivity().setSupportActionBar(toolbar);
-        getAppCompatActivity().getSupportActionBar().setDisplayShowTitleEnabled(false);
+        ActionBar actionBar = getAppCompatActivity().getSupportActionBar();
+
+        actionBar.setDisplayShowTitleEnabled(false);
         toolbar.setTitle(R.string.exercises_title);
+
+        // back button
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationOnClickListener(v -> presenter.onBackPressed());
     }
 
     private void initRecyclerView() {
@@ -110,5 +120,11 @@ public class ExercisesFragment extends BaseFragment implements ExercisesContract
     public void renderExercises(List<ExerciseModel> exerciseModels) {
         exercisesAdapter = new ExercisesAdapter(exerciseModels, getContext(), presenter);
         exercisesRecyclerView.setAdapter(exercisesAdapter);
+    }
+
+    @Override
+    public boolean onBackPressed() {
+        presenter.onBackPressed();
+        return true;
     }
 }

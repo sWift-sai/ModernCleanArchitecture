@@ -14,8 +14,7 @@ import ru.terrakok.cicerone.Router;
 
 @InjectViewState
 public class ExercisesPresenter extends BasePresenter<ExercisesContract.View>
-        implements ExercisesContract.Presenter,
-        ExercisesContract.Presenter.OnExerciseClickListener {
+        implements ExercisesContract.Presenter, ExercisesContract.Presenter.ExerciseClickListener {
 
     private final Router router;
     private final GetExercises getExercises;
@@ -63,8 +62,7 @@ public class ExercisesPresenter extends BasePresenter<ExercisesContract.View>
         @Override
         public void onNext(List<Exercise> exercises) {
             getViewState().hideLoading();
-            getViewState().renderExercises(
-                    exerciseModelMapper.transform(exercises));
+            getViewState().renderExercises(exerciseModelMapper.transform(exercises));
         }
     }
 }

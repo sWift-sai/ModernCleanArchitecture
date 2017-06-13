@@ -11,8 +11,9 @@ import ru.swift.moderncleanarchitecture.ModernApplication;
 import ru.swift.moderncleanarchitecture.R;
 import ru.swift.moderncleanarchitecture.presentation.navigation.BaseNavigator;
 import ru.swift.moderncleanarchitecture.presentation.navigation.Screens;
-import ru.swift.moderncleanarchitecture.presentation.screen.exercises.ExercisesFragment;
+import ru.swift.moderncleanarchitecture.presentation.screen.BackButtonListener;
 import ru.swift.moderncleanarchitecture.presentation.screen.categories.ExerciseCategoriesFragment;
+import ru.swift.moderncleanarchitecture.presentation.screen.exercises.ExercisesFragment;
 import ru.terrakok.cicerone.Navigator;
 import ru.terrakok.cicerone.NavigatorHolder;
 import ru.terrakok.cicerone.commands.Replace;
@@ -69,5 +70,17 @@ public class MainActivity extends MvpAppCompatActivity {
                 finish();
             }
         };
+    }
+
+    @Override
+    public void onBackPressed() {
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+        if (fragment != null
+                && fragment instanceof BackButtonListener
+                && ((BackButtonListener) fragment).onBackPressed()) {
+            return;
+        } else {
+            super.onBackPressed();
+        }
     }
 }

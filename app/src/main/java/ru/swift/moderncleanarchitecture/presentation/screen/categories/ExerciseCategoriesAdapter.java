@@ -13,16 +13,16 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.swift.moderncleanarchitecture.R;
 import ru.swift.moderncleanarchitecture.presentation.model.ExerciseCategoryModel;
-import ru.swift.moderncleanarchitecture.presentation.screen.categories.ExerciseCategoriesContract.Presenter.OnExerciseCategoryClickListener;
+import ru.swift.moderncleanarchitecture.presentation.screen.categories.ExerciseCategoriesContract.Presenter.ExerciseCategoryClickListener;
 
 public class ExerciseCategoriesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private final OnExerciseCategoryClickListener categoryClickListener;
+    private final ExerciseCategoryClickListener categoryClickListener;
     private final LayoutInflater layoutInflater;
     private final List<ExerciseCategoryModel> categories;
 
     public ExerciseCategoriesAdapter(List<ExerciseCategoryModel> categories, Context context,
-                                     OnExerciseCategoryClickListener categoryClickListener) {
+                                     ExerciseCategoryClickListener categoryClickListener) {
         this.categoryClickListener = categoryClickListener;
         this.layoutInflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);

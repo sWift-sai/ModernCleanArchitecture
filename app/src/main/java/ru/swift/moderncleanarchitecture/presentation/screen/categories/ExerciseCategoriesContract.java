@@ -13,7 +13,7 @@ interface ExerciseCategoriesContract {
 
     interface Presenter {
 
-        interface OnExerciseCategoryClickListener {
+        interface ExerciseCategoryClickListener {
             void onExerciseCategoryClick(int exerciseCategoryId);
         }
     }
