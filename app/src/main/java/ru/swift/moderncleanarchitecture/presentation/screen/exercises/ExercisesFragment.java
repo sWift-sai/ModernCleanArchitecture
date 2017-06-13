@@ -1,4 +1,4 @@
-package ru.swift.moderncleanarchitecture.presentation.screen.categories;
+package ru.swift.moderncleanarchitecture.presentation.screen.exercises;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -20,33 +20,44 @@ import butterknife.Unbinder;
 import ru.swift.moderncleanarchitecture.ApplicationComponent;
 import ru.swift.moderncleanarchitecture.ModernApplication;
 import ru.swift.moderncleanarchitecture.R;
-import ru.swift.moderncleanarchitecture.presentation.model.ExerciseCategoryModel;
+import ru.swift.moderncleanarchitecture.presentation.model.ExerciseModel;
 import ru.swift.moderncleanarchitecture.presentation.screen.BaseFragment;
 
 
-public class ExerciseCategoriesFragment extends BaseFragment implements ExerciseCategoriesContract.View {
+public class ExercisesFragment extends BaseFragment implements ExercisesContract.View {
+
+    public static final String KEY_EXERCISE_CATEGORY_ID = "exercise category id";
 
     @ProvidePresenter
-    public ExerciseCategoriesPresenter provideExerciseCategoriesPresenter() {
+    public ExercisesPresenter provideExercisesPresenter() {
+        int exerciseCategoryId = getArguments().getInt(KEY_EXERCISE_CATEGORY_ID);
         ApplicationComponent appComponent = getApplicationComponent();
-        return new ExerciseCategoriesPresenter(
+
+        return new ExercisesPresenter(
                 appComponent.provideRouter(),
-                appComponent.provideGetExerciseCategories(),
-                appComponent.provideExerciseCategoryModelDataMapper()
+                appComponent.provideGetExercises(),
+                appComponent.provideExerciseModelDataMapper(),
+                exerciseCategoryId
         );
     }
 
-    @InjectPresenter ExerciseCategoriesPresenter presenter;
+    @InjectPresenter ExercisesPresenter presenter;
 
-    @BindView(R.id.categoriesRecyclerView) RecyclerView categoriesRecyclerView;
+    @BindView(R.id.exercisesRecyclerView) RecyclerView exercisesRecyclerView;
     @BindView(R.id.progressBar) View progressBar;
     @BindView(R.id.toolbar) Toolbar toolbar;
 
     private Unbinder unbinder;
-    private ExerciseCategoriesAdapter categoriesAdapter;
+    private ExercisesAdapter exercisesAdapter;
 
-    public static ExerciseCategoriesFragment newInstance() {
-        return new ExerciseCategoriesFragment();
+    public static ExercisesFragment newInstance(int exerciseCategoryId) {
+        ExercisesFragment exercisesFragment = new ExercisesFragment();
+
+        Bundle args = new Bundle();
+        args.putInt(KEY_EXERCISE_CATEGORY_ID, exerciseCategoryId);
+        exercisesFragment.setArguments(args);
+
+        return exercisesFragment;
     }
 
 
@@ -59,7 +70,7 @@ public class ExerciseCategoriesFragment extends BaseFragment implements Exercise
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_exercise_categories, container, false);
+        View view = inflater.inflate(R.layout.fragment_exercises, container, false);
         unbinder = ButterKnife.bind(this, view);
 
         initToolbar();
@@ -71,12 +82,12 @@ public class ExerciseCategoriesFragment extends BaseFragment implements Exercise
     private void initToolbar() {
         getAppCompatActivity().setSupportActionBar(toolbar);
         getAppCompatActivity().getSupportActionBar().setDisplayShowTitleEnabled(false);
-        toolbar.setTitle(R.string.categories_title);
+        toolbar.setTitle(R.string.exercises_title);
     }
 
     private void initRecyclerView() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        categoriesRecyclerView.setLayoutManager(linearLayoutManager);
+        exercisesRecyclerView.setLayoutManager(linearLayoutManager);
     }
 
     @Override
@@ -96,8 +107,8 @@ public class ExerciseCategoriesFragment extends BaseFragment implements Exercise
     }
 
     @Override
-    public void renderExerciseCategories(List<ExerciseCategoryModel> exerciseCategoryModels) {
-        categoriesAdapter = new ExerciseCategoriesAdapter(exerciseCategoryModels, getContext(), presenter);
-        categoriesRecyclerView.setAdapter(categoriesAdapter);
+    public void renderExercises(List<ExerciseModel> exerciseModels) {
+        exercisesAdapter = new ExercisesAdapter(exerciseModels, getContext(), presenter);
+        exercisesRecyclerView.setAdapter(exercisesAdapter);
     }
 }

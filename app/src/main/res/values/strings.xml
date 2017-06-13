@@ -2,5 +2,6 @@
     <string name="app_name">ModernCleanArchitecture</string>
 
     <string name="categories_title">Exercise Categories</string>
+    <string name="exercises_title">Exercises</string>
 
 </resources>

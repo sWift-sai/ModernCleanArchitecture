@@ -3,17 +3,18 @@ package ru.swift.moderncleanarchitecture;
 import javax.inject.Singleton;
 
 import dagger.Component;
-import ru.swift.moderncleanarchitecture.data.RemoteModule;
+import ru.swift.moderncleanarchitecture.data.remote.RemoteModule;
 import ru.swift.moderncleanarchitecture.domain.DomainModule;
 import ru.swift.moderncleanarchitecture.domain.interactor.GetExerciseCategories;
+import ru.swift.moderncleanarchitecture.domain.interactor.GetExercises;
 import ru.swift.moderncleanarchitecture.presentation.PresentationModule;
 import ru.swift.moderncleanarchitecture.presentation.mapper.ExerciseCategoryModelDataMapper;
 import ru.swift.moderncleanarchitecture.presentation.mapper.ExerciseInfoModelDataMapper;
 import ru.swift.moderncleanarchitecture.presentation.mapper.ExerciseModelDataMapper;
 import ru.swift.moderncleanarchitecture.presentation.navigation.NavigationModule;
-import ru.swift.moderncleanarchitecture.presentation.screen.detail.DetailFragment;
-import ru.swift.moderncleanarchitecture.presentation.screen.main.MainActivity;
 import ru.swift.moderncleanarchitecture.presentation.screen.categories.ExerciseCategoriesFragment;
+import ru.swift.moderncleanarchitecture.presentation.screen.exercises.ExercisesFragment;
+import ru.swift.moderncleanarchitecture.presentation.screen.main.MainActivity;
 import ru.terrakok.cicerone.Router;
 
 @Singleton
@@ -28,7 +29,7 @@ public interface ApplicationComponent {
     void inject(ModernApplication application);
     void inject(MainActivity activity);
     void inject(ExerciseCategoriesFragment exerciseCategoriesFragment);
-    void inject(DetailFragment detailFragment);
+    void inject(ExercisesFragment exercisesFragment);
 
     // Mappers
     ExerciseCategoryModelDataMapper provideExerciseCategoryModelDataMapper();
@@ -40,5 +41,6 @@ public interface ApplicationComponent {
 
     // Domain
     GetExerciseCategories provideGetExerciseCategories();
+    GetExercises provideGetExercises();
 
 }

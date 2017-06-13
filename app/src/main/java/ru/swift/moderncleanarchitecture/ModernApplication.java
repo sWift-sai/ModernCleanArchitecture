@@ -3,7 +3,7 @@ package ru.swift.moderncleanarchitecture;
 import android.app.Application;
 import android.content.Context;
 
-import ru.swift.moderncleanarchitecture.data.RemoteModule;
+import ru.swift.moderncleanarchitecture.data.remote.RemoteModule;
 import ru.swift.moderncleanarchitecture.domain.DomainModule;
 import ru.swift.moderncleanarchitecture.presentation.PresentationModule;
 import ru.swift.moderncleanarchitecture.presentation.navigation.NavigationModule;

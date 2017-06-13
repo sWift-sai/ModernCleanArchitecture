@@ -1,6 +1,7 @@
 package ru.swift.moderncleanarchitecture.domain.interactor;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import ru.swift.moderncleanarchitecture.domain.scheduler.ExecutionThread;
 import ru.swift.moderncleanarchitecture.domain.scheduler.PostExecutionThread;
@@ -28,7 +29,7 @@ public abstract class BaseInteractor<P extends BaseInteractor.Params> {
     abstract Observable buildInteractorObservable(P params);
 
     @SuppressWarnings("unchecked")
-    public void execute(P params, Subscriber interactorSubscriber) {
+    public void execute(@Nullable P params, Subscriber interactorSubscriber) {
         checkNotNull(interactorSubscriber);
         subscription = buildInteractorObservable(params)
                 .subscribeOn(executionThread.getScheduler())

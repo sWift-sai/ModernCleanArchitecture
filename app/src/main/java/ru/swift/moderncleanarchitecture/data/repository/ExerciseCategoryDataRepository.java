@@ -1,4 +1,4 @@
-package ru.swift.moderncleanarchitecture.data.remote.repository;
+package ru.swift.moderncleanarchitecture.data.repository;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import ru.swift.moderncleanarchitecture.data.remote.mapper.ExerciseCategoryRemoteDataMapper;
-import ru.swift.moderncleanarchitecture.data.remote.repository.datastore.ExerciseCategoryDataStoreFactory;
-import ru.swift.moderncleanarchitecture.data.remote.repository.datastore.ExerciseCategoryRemoteDataStore;
+import ru.swift.moderncleanarchitecture.data.repository.datastore.ExerciseCategoryDataStoreFactory;
+import ru.swift.moderncleanarchitecture.data.repository.datastore.ExerciseCategoryRemoteDataStore;
 import ru.swift.moderncleanarchitecture.domain.model.ExerciseCategory;
 import ru.swift.moderncleanarchitecture.domain.repository.ExerciseCategoryRepository;
 import rx.Observable;

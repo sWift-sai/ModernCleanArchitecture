@@ -29,7 +29,6 @@ public class ExerciseCategoriesPresenterTest {
     @Mock private Router mockRouter;
     @Mock private GetExerciseCategories mockGetExerciseCategories;
     @Mock private ExerciseCategoryModelDataMapper mockExerciseCategoryModelMapper;
-    @Mock private ExerciseCategoriesContract.View mockView;
     @Mock private ExerciseCategoriesContract$View$$State mockViewState;
 
     private final int CATEGORY_COUNT = 2;

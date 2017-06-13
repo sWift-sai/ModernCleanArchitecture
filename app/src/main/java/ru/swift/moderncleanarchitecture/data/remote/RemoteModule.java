@@ -1,4 +1,4 @@
-package ru.swift.moderncleanarchitecture.data;
+package ru.swift.moderncleanarchitecture.data.remote;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -13,7 +13,6 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import ru.swift.moderncleanarchitecture.BuildConfig;
-import ru.swift.moderncleanarchitecture.data.remote.ExerciseApi;
 import ru.swift.moderncleanarchitecture.data.remote.mapper.ExerciseCategoryRemoteDataMapper;
 import ru.swift.moderncleanarchitecture.data.remote.mapper.ExerciseInfoRemoteDataMapper;
 import ru.swift.moderncleanarchitecture.data.remote.mapper.ExerciseRemoteDataMapper;
@@ -23,7 +22,7 @@ import static okhttp3.logging.HttpLoggingInterceptor.Level;
 @Module
 public class RemoteModule {
 
-    private final String BASE_URL = "https://wger.de/api/v2/";
+    private static final String BASE_URL = "https://wger.de/api/v2/";
 
     @Provides @Singleton
     Gson provideGson() {

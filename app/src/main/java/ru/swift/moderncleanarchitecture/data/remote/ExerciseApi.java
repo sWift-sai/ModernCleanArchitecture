@@ -14,9 +14,9 @@ public interface ExerciseApi {
     @GET("exercisecategory")
     Observable<PaginatedListResponse<ExerciseCategoryRemote>> getExerciseCategories();
 
+    // TODO add pagination
     @GET("exercise")
-    Observable<PaginatedListResponse<ExerciseRemote>> getExercisesByCategory(@Query("category") int categoryId,
-                                                                             @Query("page") int page);
+    Observable<PaginatedListResponse<ExerciseRemote>> getExercisesByCategory(@Query("category") int categoryId);
 
     @GET("exerciseinfo/{id}")
     Observable<ExerciseInfoRemote> getExerciseInfo(@Path("id") int exerciseId);

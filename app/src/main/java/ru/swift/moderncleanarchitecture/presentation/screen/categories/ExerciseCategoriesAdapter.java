@@ -14,7 +14,6 @@ import butterknife.ButterKnife;
 import ru.swift.moderncleanarchitecture.R;
 import ru.swift.moderncleanarchitecture.presentation.model.ExerciseCategoryModel;
 import ru.swift.moderncleanarchitecture.presentation.screen.categories.ExerciseCategoriesContract.Presenter.OnExerciseCategoryClickListener;
-import timber.log.Timber;
 
 public class ExerciseCategoriesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -58,7 +57,6 @@ public class ExerciseCategoriesAdapter extends RecyclerView.Adapter<RecyclerView
         void setUp(ExerciseCategoryModel category) {
             itemView.setOnClickListener(v -> {
                 if (categoryClickListener != null) {
-                    Timber.d("Category " + category.getId());
                     categoryClickListener.onExerciseCategoryClick(category.getId());
                 }
             });

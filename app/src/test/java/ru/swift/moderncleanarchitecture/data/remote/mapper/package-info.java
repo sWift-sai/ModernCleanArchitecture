@@ -1,0 +1,3 @@
+/*
+    There is no need to test mapping that was done via Mapstruct library in a real project
+*/

@@ -11,7 +11,7 @@ import ru.swift.moderncleanarchitecture.ModernApplication;
 import ru.swift.moderncleanarchitecture.R;
 import ru.swift.moderncleanarchitecture.presentation.navigation.BaseNavigator;
 import ru.swift.moderncleanarchitecture.presentation.navigation.Screens;
-import ru.swift.moderncleanarchitecture.presentation.screen.detail.DetailFragment;
+import ru.swift.moderncleanarchitecture.presentation.screen.exercises.ExercisesFragment;
 import ru.swift.moderncleanarchitecture.presentation.screen.categories.ExerciseCategoriesFragment;
 import ru.terrakok.cicerone.Navigator;
 import ru.terrakok.cicerone.NavigatorHolder;
@@ -56,7 +56,7 @@ public class MainActivity extends MvpAppCompatActivity {
             protected Fragment createFragment(String screenKey, Object data) {
                 switch (screenKey) {
                     case Screens.EXERCISES_SCREEN:
-                        return DetailFragment.newInstance();
+                        return ExercisesFragment.newInstance((int) data);
 
                     case Screens.EXERCISE_CATEGORIES_SCREEN:
                     default:

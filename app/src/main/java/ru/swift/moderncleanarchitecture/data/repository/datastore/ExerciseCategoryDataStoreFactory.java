@@ -1,4 +1,4 @@
-package ru.swift.moderncleanarchitecture.data.remote.repository.datastore;
+package ru.swift.moderncleanarchitecture.data.repository.datastore;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
