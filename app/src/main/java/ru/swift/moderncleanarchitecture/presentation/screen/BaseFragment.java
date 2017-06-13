@@ -1,6 +1,7 @@
 package ru.swift.moderncleanarchitecture.presentation.screen;
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
 
@@ -14,6 +15,10 @@ public abstract class BaseFragment extends MvpAppCompatFragment {
     public void onCreate(Bundle savedInstanceState) {
         initializeInjection();
         super.onCreate(savedInstanceState);
+    }
+
+    protected AppCompatActivity getAppCompatActivity() {
+        return (AppCompatActivity) getActivity();
     }
 
     protected ApplicationComponent getApplicationComponent() {

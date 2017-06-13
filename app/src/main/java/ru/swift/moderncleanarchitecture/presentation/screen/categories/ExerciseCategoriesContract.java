@@ -12,9 +12,10 @@ interface ExerciseCategoriesContract {
     }
 
     interface Presenter {
+
+        interface OnExerciseCategoryClickListener {
+            void onExerciseCategoryClick(int exerciseCategoryId);
+        }
     }
 
-    interface OnExerciseCategoryClickListener {
-        void onExerciseCategoryClick(int exerciseCategoryId);
-    }
 }

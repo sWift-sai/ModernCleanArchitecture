@@ -14,7 +14,8 @@ import ru.terrakok.cicerone.Router;
 
 @InjectViewState
 public class ExerciseCategoriesPresenter extends BasePresenter<ExerciseCategoriesContract.View>
-        implements ExerciseCategoriesContract.Presenter, ExerciseCategoriesContract.OnExerciseCategoryClickListener {
+        implements ExerciseCategoriesContract.Presenter,
+        ExerciseCategoriesContract.Presenter.OnExerciseCategoryClickListener {
 
     private final Router router;
     private final GetExerciseCategories getExerciseCategories;
